@@ -1,18 +1,13 @@
 
 import javax.swing.JOptionPane;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 /**
  *
  * @author ManuP
  */
 public class ejercicioMorse {
     
-    public static String AbcMorse[] = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
+    public static String[] AbcMorse = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
     
     public static String convertirMorse(String mensaje){
         
@@ -20,11 +15,11 @@ public class ejercicioMorse {
         
         String mensajeEnMorse="";
         
-        char caracteres[] = mensaje.toCharArray();
-        
-        for (int i = 0; i < caracteres.length; i++) {
-            mensajeEnMorse += AbcMorse[caracteres[i]-'a'];
-            
+        char[] caracteres = mensaje.toCharArray();
+
+        for (char caracter : caracteres) {
+            mensajeEnMorse += AbcMorse[caracter - 'a'];
+
         }
         
         return mensajeEnMorse;
@@ -32,9 +27,9 @@ public class ejercicioMorse {
     
     public static int cantidadMensajes(String mensajeEnMorse, int longitudMensaje){
         
-        
+
         int n=0;
-        
+
         for (int i = 0; i < AbcMorse.length; i++) {
             int nSub = AbcMorse[i].length();
             if(nSub<=mensajeEnMorse.length()){

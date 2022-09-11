@@ -1,10 +1,5 @@
 
-import java.util.Scanner;
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+import javax.swing.*;
 
 /**
  *
@@ -15,20 +10,27 @@ public class ejercicio1 {
     
     
     public static void main(String[] args) {
-    
-        Scanner entrada = new Scanner(System.in);
-        
-        System.out.println("Introduzca la cantidad de casos");
-        int casos = entrada.nextInt();
-        entrada.nextLine();
-        
+
+        boolean flag;
+        int casos=0;
+        do{
+            flag=false;
+            try {
+                casos = Integer.parseInt(JOptionPane.showInputDialog(null, "Introduce la cantidad de casos"));
+                if(casos<=0){
+                    JOptionPane.showMessageDialog(null, "Introduce valores numéricos positivos");
+                    flag=true;
+                }
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Introduce valores numéricos positivos");
+                flag=true;
+            }
+        }while(flag);
+
         for (int i = 0; i < casos; i++) {
-            System.out.println("Introduzca la frase");
-            String frase = entrada.nextLine();
+            String frase = JOptionPane.showInputDialog(null, "Introduzca la frase");
             
-            String palabras[] = frase.split(" ");
-            System.out.println("Caso #"+(i+1)+": ");
-            
+            String[] palabras = frase.split(" ");
             String resultado="";
             
             for (int j = palabras.length; j > 0; j--) {
@@ -37,8 +39,7 @@ public class ejercicio1 {
                     resultado+="\n";
                 }
             }
-            
-            System.out.println(resultado+"\n");
+            JOptionPane.showMessageDialog(null, "Caso #"+(i+1)+": \n"+resultado);
         }
         
     }
