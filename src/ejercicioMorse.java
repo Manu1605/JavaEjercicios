@@ -32,6 +32,7 @@ public class ejercicioMorse {
     
     public static int cantidadMensajes(String mensajeEnMorse, int longitudMensaje){
         
+        
         int n=0;
         
         for (int i = 0; i < AbcMorse.length; i++) {
